@@ -29,6 +29,7 @@ public class MainActivity extends TabActivity {
 
 	
 	public static ArrayList<Lieu> listItem;
+	public static Context context;
 	private TabHost tabHost;
 
 	
@@ -36,6 +37,7 @@ public class MainActivity extends TabActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		context = getApplicationContext();
 		
 		
 		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
@@ -66,9 +68,9 @@ public class MainActivity extends TabActivity {
 			
 			TabSpec tabSpec = tabHost.newTabSpec("Liste").setIndicator("Liste").setContent(new Intent(this,ListActivity.class));
 			tabHost.addTab(tabSpec);
-			//tabSpec = tabHost.newTabSpec("Favoris").setIndicator("Favoris").setContent(new Intent(this,Favoris.class));
-			//tabHost.addTab(tabSpec);
-			tabSpec= tabHost.newTabSpec("Carte").setIndicator("Carte").setContent(new Intent(this,MyMapActivity.class));
+			tabSpec = tabHost.newTabSpec("Favoris").setIndicator("Favoris").setContent(new Intent(this,FavorisActivity.class));
+			tabHost.addTab(tabSpec);
+			tabSpec = tabHost.newTabSpec("Carte").setIndicator("Carte").setContent(new Intent(this,MyMapActivity.class));
 			tabHost.addTab(tabSpec);
 		
 

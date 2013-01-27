@@ -6,8 +6,10 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.widget.ImageView;
 
+import com.google.android.maps.GeoPoint;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -15,14 +17,14 @@ public class Lieu implements Parcelable{
 
 	private int id;
 	private String icon_id;
-	private float lon;
+	private Float lon;
 	private String categorie_id;
 	private String small_image_url;
 	private String image_url;
 	private String quartier;
 	private String informations;
 	private String nom;
-	private float lat;
+	private Float lat;
 	private String secteur;
 
 	
@@ -55,6 +57,12 @@ public class Lieu implements Parcelable{
 		this.secteur = in.readString();
 	}
 
+	
+	public GeoPoint getGeoPoint(){
+		Log.i("parse", String.valueOf(this.lon));
+		return new GeoPoint((int)(this.lat * 1E6), (int)(this.lon * 1E6));
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -71,11 +79,11 @@ public class Lieu implements Parcelable{
 		this.icon_id = icon_id;
 	}
 
-	public float getLon() {
+	public Float getLon() {
 		return lon;
 	}
 
-	public void setLon(long lon) {
+	public void setLon(Float lon) {
 		this.lon = lon;
 	}
 
@@ -127,11 +135,11 @@ public class Lieu implements Parcelable{
 		this.nom = nom;
 	}
 
-	public float getLat() {
+	public Float getLat() {
 		return lat;
 	}
 
-	public void setLat(long lat) {
+	public void setLat(Float lat) {
 		this.lat = lat;
 	}
 

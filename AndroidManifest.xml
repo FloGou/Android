@@ -4,7 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="17" />
@@ -16,9 +15,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
-        
-        
         <activity
             android:name="com.fgouget.dm_android.MainActivity"
             android:label="@string/app_name" >
@@ -38,7 +34,15 @@
             android:name="com.fgouget.dm_android.MyMapActivity"
             android:label="@string/title_activity_my_map" >
         </activity>
-        <uses-library android:name="com.google.android.maps" android:required="true"/>
+
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="true" />
+
+        <activity
+            android:name="com.fgouget.dm_android.FavorisActivity"
+            android:label="@string/title_activity_favoris" >
+        </activity>
     </application>
 
 </manifest>
